@@ -8,22 +8,22 @@ import FormAddFriend from "../components/FormAddFriend";
 
 function App() {
   const [friends, setFriends] = useState<FriendType[]>([...initialFriends]);
-  const [showAddFriend, setShowAddFriend] = useState(false);
+  const [showAddFriend, setShowAddFriend] = useState<boolean>(false);
   const [selectedFriend, setSelectedFriend] = useState<FriendType | null>(null);
 
   const handleShowAddFriend = () => {
     setShowAddFriend(!showAddFriend);
   };
 
-  const handleAddFriend = (friend: FriendType) => {
-    setFriends([...friends, friend]);
+  const handleAddFriend = (newFriend: FriendType) => {
+    setFriends([...friends, newFriend]);
     setShowAddFriend(false);
     // add a new friend to the friends array
   };
 
   const handleSelection = (friend: FriendType) => {
     // setSelectedFriend(friend);
-    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+    setSelectedFriend((curFriend) => (curFriend?.id === friend.id ? null : friend));
     setShowAddFriend(false);
   };
 
@@ -48,15 +48,12 @@ function App() {
           onSelection={handleSelection}
         />
 
-        
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-
 
         <Button onClick={handleShowAddFriend}>
           {showAddFriend ? "Close" : "Add friend"}
         </Button>
         <br />
-
       </div>
 
       {selectedFriend && (
