@@ -3,12 +3,13 @@ import { ReactNode, MouseEventHandler } from "react";
 interface ButtonProps {
   children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  styleAdd?: string;
 }
 
-const Button = ({ children, onClick }: ButtonProps) => {
+const Button = ({ children, onClick , styleAdd}: ButtonProps) => {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <button className="button" onClick={onClick}>
+    <div className="flex justify-end mt-2 col-start-2">
+      <button className={`btn-default ${styleAdd}`} onClick={onClick}>
         {children}
       </button>
     </div>

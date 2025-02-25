@@ -40,7 +40,8 @@ function App() {
   };
 
   return (
-    <div className="app">
+    // min-h-[66vh] grid grid-cols-[34rem_44rem] gap-x-16
+    <div className="min-h-[66vh] grid grid-cols-[34rem_44rem] gap-x-16 items-start">
       <div className="sidebar">
         <FriendsList
           friends={friends}
@@ -50,7 +51,7 @@ function App() {
 
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
 
-        <Button onClick={handleShowAddFriend}>
+        <Button onClick={handleShowAddFriend} styleAdd="mx-4">
           {showAddFriend ? "Close" : "Add friend"}
         </Button>
         <br />

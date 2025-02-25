@@ -1,7 +1,6 @@
 import { FriendType } from "../data/friends";
 import Friend from "./Friend";
 
-
 type FriendsListProps = {
   friends: FriendType[];
   selectedFriend: FriendType | null;
@@ -14,9 +13,9 @@ const FriendsList = ({
   onSelection,
 }: FriendsListProps) => {
   return (
-    <ul>
+    <ul className="list-none flex flex-col gap-y-1.5 text-[1.4rem] mb-8">
       {friends.map((friend) => (
-        <Friend   
+        <Friend
           friend={friend}
           selectedFriend={selectedFriend}
           onSelection={onSelection}

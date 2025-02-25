@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-firacode: "Fira Code", monospace;
+  --color-lightest: #fff4e6;
+  --color-light: #ffe8cc;
+  --color-medium: #ffa94d;
+  --color-dark: #ff922b;
+
+  /* ... */
+}
+
+/* Adicionar configuração global da fonte */
+@layer base {
+  html {
+    font-family: "Fira Code", monospace;
+    font-size: 62.5%;
+    box-sizing: border-box; /* Adiciona box-sizing: border-box globalmente */
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit; /* Herda box-sizing: border-box de html */
+  }
+  body {
+    height: 100vh;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@layer components {
+  .btn-default {
+    background-color: var(--color-medium);
+    color: #343a40;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-dark);
+      }
+    }
+  }
+}
